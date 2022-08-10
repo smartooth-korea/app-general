@@ -1,0 +1,78 @@
+spring:
+    profiles:
+        active: local
+---
+spring:
+    mvc:
+        view:
+            prefix: /WEB-INF/views/
+            suffix: .jsp
+---
+spring:
+    #datasource (mariaDB)
+    datasource:
+        driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+        
+        #로컬 Local Database
+        db-url: jdbc:log4jdbc:mariadb://localhost:3306/smartooth
+        #loginUrl: localhost:8080
+        
+        #운영서버 Prod Database
+        #db-url: jdbc:log4jdbc:mariadb://smartooth-mariadb.cdx8q9adtw2b.ap-northeast-2.rds.amazonaws.com:3306/ST_1_0
+        #db-url: jdbc:log4jdbc:mariadb://smartooth-mariadb.cdx8q9adtw2b.ap-northeast-2.rds.amazonaws.com:3306/ST_SCH_1_0
+        #loginUrl: 13.124.37.209:8080
+        
+        #개발서버 Dev Database
+        #db-url: jdbc:log4jdbc:mariadb://smartooth-database-dev.ciia9tposmmb.ap-northeast-2.rds.amazonaws.com:3306/ST_1_0
+        
+        db-username: smartooth
+        db-password: smartooth509#
+        
+---
+spring:
+    server:
+    
+        #로컬 Local
+        ip: localhost
+        port: 8080
+        #port: 8080
+        
+        #운영 Prod
+        #ip: 13.124.37.209
+        #port: 8080
+        
+        #개발 Dev
+        #ip: 13.124.37.209
+        #port: 8080
+
+    #메일 발송 부분은 로직은 동일, 메일 발송 HOST, ID, 비밀번호만 변경해주면 됨
+    mailsendername: Smartooth Korea
+    mailusername: manager@smartooth.co
+    mailpassword: dkagh1505!@
+  
+mybatis:
+    configuration:
+        map-underscore-to-camel-case: 'true'
+        
+---
+spring:
+    jwt:
+        secretKey: tmakxntmzhfldk
+        
+---        
+spring:
+    mvc:
+        static-path-pattern : /static/**
+        
+#---
+#spring:
+#    web:
+#        resources:
+#            add-mappings: 'true'
+
+
+---
+spring:
+    web:
+        resources:
+            static-locations : classpath:/static-location/
