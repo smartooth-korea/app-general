@@ -25,5 +25,12 @@ public class LogServiceImpl implements LogService{
 	public void insertUserLoginHistory(AuthVO authVO) throws Exception {
 		logMapper.insertUserLoginHistory(authVO);
 	}
+
+
+	// 회원 접속일 UPDATE
+	@Override
+	public void updateLoginDt(AuthVO authVO) throws Exception {
+		logMapper.updateLoginDt(authVO);
+	}
 	
 }

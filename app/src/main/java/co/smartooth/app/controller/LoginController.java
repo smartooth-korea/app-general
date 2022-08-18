@@ -123,7 +123,7 @@ public class LoginController {
 				userAuthToken = jwtTokenUtil.createToken(authVO);
 				
 				// 로그인 일자 업데이트
-				// logService.updateLoginDt(authVO);
+				 logService.updateLoginDt(authVO);
 				
 				// 로그인 시 회원의 정보를 가져옴 :: List<UserVO>
 				userInfo = userService.selectUserInfo(userVO);
